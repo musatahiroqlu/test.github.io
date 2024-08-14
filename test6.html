@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="az">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      href="https://example.com/favicon.ico"
+      type="image/x-icon"
+    />
+    <link href='https://fonts.googleapis.com/css?family=Alatsi' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+   
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+   <style>
+    /* Başlıq üçün stil */
+.navbar {
+    /* background-color: #28a745; */
+background-color: #345E43;
+    background-image: none; /* Arxa fon şəkili yoxdur */
+    /* max-height: 80px; */
+    transition: background-color 0.3s ease-in-out;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    height: 10vh;
+    justify-content: space-between; /* Sol və sağ tərəfdəki elementləri hizalayır */
+    position: fixed;
+    width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand, .navbar-nav .nav-link, .navbar-nav .dropdown-item {
+    color: #fff !important; /* Daha ağ mətn */
+    font-size: 1.2rem; /* Daha böyük mətn */
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-brand:hover, .navbar-nav .nav-link:hover, .navbar-nav .dropdown-item:hover {
+    color: #d4d4d4 !important; /* Hoverda açıq boz rəng */
+}
+
+.navbar-nav {
+    margin: 0;
+}
+
+.navbar-nav .nav-item {
+    position: relative;
+    margin: 0 15px;
+}
+
+.navbar-nav .nav-item::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width .3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.navbar-nav .nav-item:hover::after {
+    width: 100%;
+}
+
+/* Dropdown menü üçün stil */
+.dropdown-menu {
+    background-color: #28a745; /* Yaşıl fon */
+}
+
+.dropdown-menu .dropdown-item {
+    color: #fff; /* Ağ mətn */
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #218838; /* Hoverda tünd yaşıl fon */
+}
+
+/* Icon üçün stil */
+.nav-link i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+/* Dil seçimləri üçün stil */
+.language-selector {
+    position: relative; /* Sola hizalamaq üçün sağ tərəfdə olan məsafəni tənzimləyin */
+    top: 0px;
+    right: 20px;
+}
+
+.language-selector img {
+    width: 27px;
+    height: 27px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Loqo şəkli üçün stil */
+.logo {
+    height: 160px; 
+    object-fit: contain;
+}
+
+/* Body üçün arxa fon şəkili */
+body {
+    /* background-image: url('https://www.intekfreight-logistics.com/hubfs/Container%20Ship-01%20%281%29.jpg');  */
+    background-size: cover; /* Şəkilin bütün ekranı əhatə etməsi üçün */
+    background-position: center 240%; /* Şəkilin mərkəzə hizalanması üçün */
+    background-repeat: no-repeat; /* Şəkilin təkrarlanmaması üçün */
+    margin: 0; /* Səhifənin kənar boşluqlarını aradan qaldırmaq üçün */
+    padding: 0; /* Səhifənin iç boşluqlarını aradan qaldırmaq üçün */
+    width: 100%; /* Ekran genişliyini əhatə edir */
+    height: 100vh; /* Ekran hündürlüyünü əhatə edir */
+}
+
+
+
+
+
+.girisDiv {
+    height: 90vh;
+    background: linear-gradient(45deg, #F6F5F4, #F2F0EB );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+    top: 10vh;;
+    overflow: hidden;
+  }
+
+  .girisDiv h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 150px;
+    color: 	#202c22 ;
+    margin-bottom: 20px;
+    animation: textPopUp 2s ease forwards;
+  }
+
+  .girisDiv img {
+    position: absolute;
+    bottom: -50px;
+    right: 50px;
+    width: 400px;
+    height: auto;
+    opacity: 0.9;
+    transform: translateY(10px);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .girisDiv img:hover {
+    transform: translateY(0);
+  }
+
+  .background-circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(231,206,185, 0.2);
+    animation: float 5s infinite ease-in-out;
+  }
+
+  .circle:nth-child(1) {
+    width: 250px;
+    height: 250px;
+    top: 10%;
+    left: 10%;
+    animation-duration: 10s;
+  }
+  .circle:nth-child(2) {
+    width: 300px;
+    height: 300px;
+    top: 40%;
+    right: 10%;
+    background: rgba(255, 255, 255, 0.02);
+    background-image: url("cargo.png");
+
+    
+    background-size: cover;
+    animation-duration: 12s;
+  }
+
+  .circle:nth-child(3) {
+    width: 150px;
+    height: 150px;
+    bottom: 20%;
+    left: 15%;
+  
+    animation-duration: 16s;
+  }
+
+  .circle:nth-child(4) {
+    width: 200px;
+    height: 200px;
+    z-index: -1;
+    bottom: 5%;
+    right: 15%;
+    animation-duration: 15s;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(-50px) translateX(50px);
+    }
+    100% {
+      transform: translateY(0) translateX(0);
+    }
+  }
+
+  @keyframes textPopUp {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  .image-frame {
+    position: relative;
+    width: 550px;
+    height: 400px;
+    margin: 50px auto;
+    border-radius: 50%;
+     background: linear-gradient(145deg, #F6F5F4, #c5c3c6); 
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     box-shadow: 0 0 15px rgba(0, 0, 0, 0.15); 
+    overflow: hidden;
+    animation: float1 5s ease-in-out infinite;
+    background-image: url("test2.png");
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+  }
+
+
+  @keyframes float1 {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+/* Hero section üçün stil */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Mətnin sağ tərəfə hizalanması üçün */
+    height: 400px; /* Sekil sahəsinin hündürlüyü */
+    position: relative;
+    padding-right: 50px; /* Sağ tərəfdən boşluq */
+    margin-top: 50px; /* Yuxarıdan məsafə */
+}
+
+.hero-text {
+    color: #fff; /* Mətn rəngini ağ saxlayır */
+    background-color: rgba(0,0,0,0.5); /* Arxa fonu yarı şəffaf qara etmək */
+    padding: 40px;
+    border-radius: 0; /* Küncləri yuvarlandırmaq */
+    max-width: 100%; /* Mətnin ekran ölçüsünə uyğun gəlməsi */
+    margin: 0;
+    position: absolute;
+    top: 37%; /* Mətni tam mərkəzə yerləşdirmək üçün */
+    right: 5%; /* Sağ tərəfdən məsafə */
+    transform: translateY(-50%); /* Y oxunda tam mərkəzləşdirmək */
+    font-size: 2.5rem; /* Daha böyük mətn ölçüsü */
+    line-height: 1.3; /* Daha estetik görünüş üçün */
+    font-weight: bold; /* Mətnin diqqət çəkici olması üçün */
+    text-transform: uppercase; /* Mətnin böyük hərflərlə yazılması üçün */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Mətnin oxunurluğunu artırmaq üçün kölgə */
+}
+
+/* Hero mətn ölçüsünü ekran ölçüsünə uyğunlaşdırmaq */
+.hero-text h1 {
+    font-size: 2.5rem; /* Daha böyük ölçü */
+    line-height: 1.3;
+    margin: 0; /* Başlıq üçün margin silinsin */
+}
+
+.hero-text:hover {
+    border-top-right-radius: 60px; /* Sağ üst künc */
+    border-bottom-left-radius: 60px; /* Sol alt künc */
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px; /* Küncləri yuvarlaşdırmaq üçün */
+}
+
+
+
+
+/* Carousel üçün stil */
+.carousel-content {
+    display: flex;
+    align-items: center; /* Şaquli mərkəzləşdirir */
+    justify-content: center; /* Üfüqi mərkəzləşdirir */
+    height: 60vh; /* Carouselin hündürlüyü */
+    color: #fff; /* Mətn rəngi ağ */
+    text-align: center; /* Mətnin ortada olması üçün */
+}
+
+.carousel-content h1 {
+    font-size: 3rem; /* Mətn ölçüsü */
+    line-height: 1.3; /* Mətnin xətt hündürlüyü */
+    font-weight: bold; /* Mətnin qalın olması üçün */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Kölgə əlavə etmək üçün */
+    background-color: rgba(0, 0, 0, 0.5); /* Arxa fonu yarı şəffaf qara etmək */
+    padding: 20px; /* İç boşluq */
+    border-radius: 10px; /* Küncləri yuvarlaqlaşdırmaq üçün */
+}
+
+/* Xidmətlər başlığı üçün stil */
+.services-title {
+ 
+    text-align: center; /* Mərkəzləşdirir */
+    margin-top: 120px; /* Carousel və romblar arasında məsafə */
+}
+
+.services-title h1 {
+    font-size: 4.5rem; /* Başlıq ölçüsü */
+    color: #000; /* Mətn rəngi qara */
+    font-weight: bold; /* Başlığı diqqətə çatdırmaq üçün qalın yazı */
+    text-transform: uppercase; /* Mətnin böyük hərflərlə yazılması */
+}
+
+/* Rombların konteyneri və şəkil üçün stil */
+.content-wrapper {
+    display: flex; /* Rombları və şəkili yan-yana yerləşdirir */
+    align-items: flex-start; /* Şaquli mərkəzləşdirir */
+    justify-content: center; /* Üfüqi mərkəzləşdirir */
+}
+
+
+
+
+
+
+
+
+/* Rombların konteyneri üçün stil */
+.rhombus-container {
+    display: flex;
+    flex-direction: column; /* Rombları şaquli olaraq yerləşdirir */
+    justify-content: center; /* Rombları mərkəzləşdirir */
+    margin-right: 140px; /* Rombların sağında boşluq */
+    margin-top: 80px; 
+}
+
+/* Rombların üslubu */
+.rhombus-row {
+    display: flex; /* Rombları yan-yana yerləşdirir */
+    justify-content: center; /* Mərkəzləşdirir */
+    margin-bottom: 40px; /* Alt-üst romblar arasında məsafə */
+}
+
+.rhombus {
+    width: 150px; /* Rombların genişliyi */
+    height: 150px; /* Rombların hündürlüyü */
+    background-color: #405742; /* Yaşıl arxa fon */
+    color: #000; /* Qara mətn */
+    display: flex; /* İçindəki mətnləri və ikonu mərkəzləşdirir */
+    align-items: center; /* Şaquli mərkəzləşdirir */
+    justify-content: center; /* Üfüqi mərkəzləşdirir */
+    margin: 30px; /* Rombların arasına məsafə */
+    position: relative;
+    transform: rotate(45deg); /* Rombların şəklini düzəldir */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, width 0.3s ease, height 0.3s ease; /* Hover zamanı rəng və forma dəyişimi */
+}
+
+/* İkonların üslubu */
+.rhombus i {
+    font-size: 34px; /* İkonun ölçüsü */
+    color: #fff; /* İkonun rəngi */
+    transition: opacity 0.3s ease; /* Hover zamanı şəffaflıq dəyişimi */
+    transform: rotate(-45deg); /* Rombların şəklini düzəldir */
+}
+
+/* Rombların mətninin üslubu */
+.rhombus-text {
+    display: none; /* Başlanğıcda mətn görünmür */
+}
+
+/* Romblara hover zamanı stil */
+.rhombus:hover {
+    background-color: #000; /* Hoverda ağ arxa fon */
+    color: #fff; /* Hoverda qara mətn */
+    transform: rotate(0deg) scale(1.2); /* Hover zamanı kvadrat şəklinə dönür və böyüyür */
+}
+
+.rhombus:hover .rhombus-text {
+    display: block; /* Hover zamanı mətnin görünməsi */
+}
+
+.rhombus:hover i {
+    display: none; /* Hover zamanı ikonun şəffaflığı */
+}
+
+
+
+
+
+
+
+/* Şəkil konteyneri üçün stil */
+.image-container {
+    margin-left: 20px; /* Soldan boşluq */
+}
+
+.image-container img {
+    width: 600px;
+    height: 600px;  /* Şəkilin genişliyi */
+    border-radius: 10px; /* Şəkilin künclərini yuvarlaqlaşdırır */
+}
+
+
+.lorem-container {
+    margin: 0px 0; /* Üst ve alt margin */
+    text-align: center; /* Metni ortala */
+}
+
+
+
+
+
+
+.about-section {
+    background: linear-gradient(to right, rgba(245, 245, 220, 0.9), rgba(219,234,210, 0.9));
+    padding: 60px 20px;
+    text-align: center;
+    height: 90vh;
+    margin-top: 10vh;
+    color: #fff;
+}
+
+.about-title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    color:rgba(17,22,19);
+}
+
+.about-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-text {
+    flex: 1;
+    color:#556B2F;
+    font-size: 23px;
+    text-align: left;
+    font-family: 'Alatsi';
+}
+
+.about-text p {
+    margin-bottom: 20px;
+}
+
+.about-button {
+    background-color: #E2725B;
+    color: #FFFFCC;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.about-button i {
+    margin-left: 10px;
+}
+
+.about-button:hover {
+    background-color: #c3592b;
+    color: #000000;
+}
+
+.video-container {
+    flex: 1;
+    max-width: 600px;
+}
+
+.about-video {
+    width: 100%;
+    height: 315px; /* Adjust as needed */
+    border-radius: 10px;
+}
+
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.gallery-image {
+    width: 200px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+.gallery-image:hover {
+    transform: scale(1.05);
+}
+.query-container {
+            height: 90vh;
+margin-top: 10vh;
+    padding: 40px 20px;
+     background-color: #f0ede5; 
+    
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    /* margin-top: 10vh; */
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-header h2 {
+    font-size: 2.5rem;
+    color: #28a745;
+}
+
+.contact-header p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.info-item {
+    flex: 1;
+    text-align: center;
+    margin: 0 10px;
+    padding: 20px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.info-item a{
+  text-decoration: none;
+  color: #000;
+}
+
+.info-item:hover {
+    transform: translateY(-5px);
+}
+
+.info-item i {
+    font-size: 2rem;
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+.info-item h4 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.contact-form {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form .form-group {
+    margin-bottom: 15px;
+}
+
+.contact-form label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: none;
+    height: 100px;
+}
+
+.contact-form button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+footer {
+            background: linear-gradient(135deg, #57F287 , #81BE83 );
+            color: white;
+            padding: 20px 0;
+            position: relative;
+            z-index: 1;
+             overflow: hidden; 
+        }
+
+        .footer-wrapper {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .footer-map iframe {
+            border: 3px solid #F8F6E3;
+            border-radius: 10px;
+        }
+
+        .footer-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .icon {
+            color: white;
+            font-size: 24px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .icon:hover {
+            transform: scale(1.01);
+          
+            border-radius: 50%;
+         
+        }
+
+        .footer-info {
+            font-size: 14px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+       
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(0.95);
+                opacity: 1;
+            }
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0px;
+            height: 90px;
+           
+            width: 100%;
+            background: url('wave.png') repeat-x;
+            background-size: 250rem 30rem;
+            animation: animate 15s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                background-position-x: 0;
+                background-position-x: -250rem;
+            }
+        }
+
+        .wave:nth-child(1) {
+            opacity: 0.9;
+        }
+
+        .wave:nth-child(2) {
+            opacity: 0.5;
+            animation-delay: 0.2s;
+            animation-direction: reverse;
+        }
+
+        .wave:nth-child(3) {
+            opacity: 0.7;
+            animation-delay: 5s;
+        }
+       
+@media (max-width: 576px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+        height: 10vh; /* Adjusted for smaller screens */
+    }
+
+    .logo {
+        height: 50px; /* Smaller logo height for phones */
+    }
+
+    .navbar-nav {
+        width: 100%;
+        justify-content: space-around; /* Space out menu items */
+        text-align: center;
+        margin-top: 10px;
+        background-color: #345E43;
+    }
+
+    .navbar-nav .nav-item {
+       
+        margin: 5px 0; /* Reduce spacing between menu items */
+    }
+
+    .language-selector {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    .language-selector img {
+        width: 20px; /* Smaller language selector icons */
+        height: 20px;
+    }
+
+    /* Hero section adjustments for small screens */
+    .hero-section {
+        flex-direction: column;
+        padding: 0;
+        height: auto; /* Adjusted height for phones */
+        margin-top: 60px;
+    }
+
+    .hero-text {
+        font-size: 1.2rem; /* Smaller font size for phones */
+        text-align: center; /* Center text for better readability */
+        padding: 10px;
+    }
+
+    /* Form adjustments for small screens */
+    .contact-form {
+        padding: 10px;
+        font-size: 1rem; /* Adjust font size */
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%; /* Full-width input fields */
+        margin-bottom: 10px; /* Add space between inputs */
+    }
+
+    .btn {
+        width: 100%; /* Full-width buttons */
+        padding: 12px;
+        font-size: 1rem; /* Adjust button font size */
+    }
+
+    /* Footer adjustments for small screens */
+    .footer {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .footer a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    /* Adjustments for the circle elements */
+    .circle {
+        width: 50px; /* Smaller circles for phones */
+        height: 50px;
+    }
+
+    /* Video and media adjustments */
+    .video-section {
+        width: 100%; /* Full-width video */
+        padding: 10px;
+    }
+
+    .video-section iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Hide image frame and circle element */
+    .image-frame {
+        display: none;
+    }
+
+    .circle:nth-child(2) {
+        display: none;
+    }
+
+
+
+    .services-title h1{
+        font-size: 25px;
+    }
+    /* Move rhombuses to the bottom */
+    .content-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center horizontally */
+        justify-content: flex-end; /* Align items to the bottom */
+        height: auto; /* Allow height to adjust based on content */
+        padding: 20px; /* Add padding for spacing */
+    }
+
+ 
+
+
+   
+     .rhombus-container {
+        margin-right: 0; /* Remove right margin to align items correctly */
+        margin-top: 20px; /* Adjust margin for spacing */
+    }
+
+    .rhombus-row {
+        flex-direction: row; /* Align rhombuses in a row */
+        flex-wrap: wrap; /* Allow wrapping of rhombuses */
+        justify-content: center; /* Center align items */
+        margin-bottom: 20px; /* Adjust spacing between rows */
+    }
+
+    .rhombus {
+        width: 90px; /* Reduced width for phone mode */
+        height: 90px; /* Reduced height for phone mode */
+        margin: 10px; /* Adjust spacing between rhombuses */
+    }
+
+    .rhombus i {
+        font-size: 20px; /* Adjust icon size */
+    }
+    #main-image{
+margin-left: 5%;
+height: 40vh;
+        width: 90%;
+    }
+    .about-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; /* Align content to the bottom */
+        height: auto; /* Allow the height to adjust based on content */
+    }
+
+    .about-content {
+        flex-direction: column; /* Stack content vertically */
+        align-items: center; /* Center align items horizontally */
+        gap: 20px; /* Adjust gap between items */
+    }
+
+    .about-text {
+        text-align: center; /* Center align text */
+        font-size: 18px; /* Adjust font size */
+    }
+
+    .video-container {
+        margin-top: 20px; /* Adjust spacing between text and video */
+    }
+
+    .about-video {
+        height: 200px; /* Adjust video height for mobile */
+    }
+
+    .image-gallery {
+        display: none; /* Hide the image gallery on mobile */
+    }
+    footer{
+      margin-top: 20vh;
+    }
+    
+}
+
+   </style>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark animate__animated animate__fadeInDown"
+    >
+      <div class="container" style="height: 20vh;">
+        <a class="navbar-brand" href="#">
+          <img
+            src="img/escado-logo-bg-removed.png"
+            alt="Logistika Logo"
+            class="logo"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#anaSehife"
+                ><i class="fas fa-home"></i> Ana Səhifə</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#xidmetler">
+                <i class="fas fa-cogs"></i> Xidmətlər
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#haqqimizda">
+                <i class="fas fa-info-circle"></i> Haqqımızda
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#elaqeler"
+                ><i class="fas fa-envelope"></i> Əlaqə</a
+              >
+            </li>
+          </ul>
+          <!-- <div class="language-selector">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/197/197374.png"
+              alt="English"
+              title="English"
+            />
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/197/197408.png"
+              alt="Русский"
+              title="Русский"
+            />
+          </div> -->
+        </div>
+      </div>
+    </nav>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+<div id="anaSehife"></div>
+    <div class="girisDiv" >
+      <h1>Dünyanın hər bir yerindən <br>  ünvana çatdırılma</h1>
+
+      <div class="background-circles">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+      <div class="image-frame">
+    </div>
+    </div>
+    <script>
+      const container = document.querySelector(".girisDiv");
+      const cursor = document.querySelector(".cursor");
+
+      for (let i = 0; i < 150; i++) {
+        const circle = document.createElement("div");
+        circle.classList.add("circle");
+        cursor.appendChild(circle);
+      }
+
+      container.addEventListener("mousemove", (e) => {
+        const rect = container.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        gsap.to(".circle", {
+          x: x,
+          y: y,
+          stagger: -0.0025,
+          scale: (i) => 1 + i * (2 / 200),
+        });
+      });
+    </script>
+<div  id="xidmetler"></div>
+    <div class="services-title">
+      <h1 >Xidmətlər</h1>
+    </div>
+    <div class="lorem-container">
+      <hr />
+   
+    </div>
+    <div class="content-wrapper">
+      <div class="rhombus-container">
+        <div class="rhombus-row">
+          <div
+            class="rhombus"
+            data-image="https://img1.wsimg.com/isteam/stock/803/:/cr=t:0%25,l:0%25,w:100%25,h:100%25"
+          >
+            <i class="fas fa-passport"></i>
+            <span class="rhombus-text">Viza Xidmetleri</span>
+          </div>
+          <div
+            class="rhombus"
+            data-image="https://images.ctfassets.net/ksxncq3aj87t/19CvNWNUBH3PEDCkF7MU52/deba218e6692a31725cff31679826a9d/Shipping.jpg?w=1000&h=664&fl=progressive&q=50&fm=jpg"
+          >
+            <i class="fas fa-box"></i>
+            <span class="rhombus-text">Karqo Xidmetleri</span>
+          </div>
+          <div
+            class="rhombus"
+            data-image="https://www.welcometranslations.com/wp-content/uploads/2023/07/translation-word-blue-computer-keyboard-key.jpg"
+          >
+            <i class="fas fa-handshake"></i>
+            <span class="rhombus-text">Tərcümə xidmətləri</span>
+          </div>
+        </div>
+        <div class="rhombus-row">
+          <div
+            class="rhombus"
+            data-image="truck.png"
+          >
+            <i class="fas fa-truck"></i>
+            <span class="rhombus-text">Avtomobil Yolu</span>
+          </div>
+          <div
+            class="rhombus"
+            data-image="ship.png"
+          >
+            <i class="fas fa-ship"></i>
+            <span class="rhombus-text">Dəniz Yolu</span>
+          </div>
+          <div
+            class="rhombus"
+            data-image="plane.png"
+          >
+            <i class="fas fa-plane"></i>
+            <span class="rhombus-text">Hava Yolu</span>
+          </div>
+        </div>
+      </div>
+      <div class="image-container">
+        <img
+          src="https://scontent.fgyd3-1.fna.fbcdn.net/v/t39.30808-6/410973041_267937659596238_4311744812220467072_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=TcWVKWIhHfgQ7kNvgGD_Grw&_nc_ht=scontent.fgyd3-1.fna&oh=00_AYDhKWuNi4q8YlUSUEbBJySazj_a2g3Ok66q9INcDvCIbA&oe=66C26AFD"
+          alt="Placeholder Image"
+          id="main-image"
+        />
+      </div>
+    </div>
+    <hr  id="haqqimizda" />
+   
+    <div class="about-section">
+        <div class="container">
+            <h2 class="about-title animate__animated animate__fadeIn">Haqqımızda</h2>
+            <div class="about-content">
+                <div class="about-text ">
+                    <p>
+                        Biz, müştərilərimiz üçün fərdi xidmətlər təqdim edərək
+                        onların gözləntilərini aşmağa çalışırıq. Logistika sahəsində
+                        təcrübəmizlə, səmərəli və etibarlı həllər təqdim edirik.
+                    </p>
+                    <p>
+                        Müxtəlif sektorlarda fəaliyyət göstərərək, biz sizə
+                        optimal logistika həlləri təqdim edirik. Bizimlə əməkdaşlıq
+                        edərək, siz yalnız bir logistika partnyoru deyil, eyni
+                        zamanda etibarlı bir tərəfdaş əldə edirsiniz.
+                    </p>
+                    <button class="about-button">
+                        Sertifikat <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="video-container  ">
+                    <iframe
+                    src="https://www.youtube.com/embed/your-video-id"
+                    title="About Us Video"
+                    frameborder="0"
+                    allowfullscreen
+                    class="about-video"
+                ></iframe>
+                </div>
+            </div>
+            <div class="image-gallery animate__animated animate__fadeInUp">
+                <img
+                    src="https://img.freepik.com/free-photo/logistics-transportation-container-cargo-ship-cargo-plane-with-working-crane-bridge-shipyard-sunrise-logistic-import-export-transport-industry-background-ai-generative_123827-24177.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1722556800&semt=ais_hybrid"
+                    alt="Gallery Image 1"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://scontent.fgyd3-1.fna.fbcdn.net/v/t39.30808-6/410973041_267937659596238_4311744812220467072_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=TcWVKWIhHfgQ7kNvgGD_Grw&_nc_ht=scontent.fgyd3-1.fna&oh=00_AYDhKWuNi4q8YlUSUEbBJySazj_a2g3Ok66q9INcDvCIbA&oe=66C26AFD"
+                    alt="Gallery Image 2"
+                    class="gallery-image"
+                />
+                <img
+                    src="https://static.wixstatic.com/media/ee4934_92152142debb4b0da83db7efe59a41f3~mv2.jpg/v1/crop/x_873,y_0,w_1888,h_1889/fill/w_256,h_256,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Container%20ship%2C%20Freight%20business%20import%20export%20logistic%20and%20transportation%20of%20Internationa.jpg"
+                    alt="Gallery Image 3"
+                    class="gallery-image"
+                />
+            </div>
+        </div>
+    </div>
+    <hr id="elaqeler"/>
+
+    <div class="query-container">
+        <div class="contact-header animate__animated animate__fadeInDown">
+            <h2>Bizimlə Əlaqə</h2>
+            <p>Bizimlə əlaqə saxlamaq üçün aşağıdakı formu doldurun.</p>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Ünvan</h4>
+                    <p>Bakı şəhəri,
+                        Salyan şossesi 12</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <h4>Telefon</h4>
+                   
+                        <a  href="tel:+994553614323">+994 55 361 43 23</a>
+                        <br>
+                        <a  href="tel:+8613004614323">+86 130 0461 4323</a>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Email</h4>
+                    <a href="mailto:pasha@escado.az">pasha@escado.az</a>
+                </div>
+            </div>
+            <form class="contact-form animate__animated animate__fadeIn">
+                <div class="form-group">
+                    <label for="name">Adınız:</label>
+                    <input type="text" id="name" name="name" placeholder="Adınızı daxil edin" required />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="email@example.com" required />
+                </div>
+                <div class="form-group">
+                    <label for="subject">Mövzu:</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Mövzu seçin</option>
+                        <option value="inquiry">Sual</option>
+                        <option value="support">Dəstək</option>
+                        <option value="feedback">Rəy</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mesajınız:</label>
+                    <textarea id="message" name="message" placeholder="Mesajınızı buraya yazın..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Göndərin</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-waves">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+        <div class="footer-wrapper">
+            <div class="footer-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3042.776807140021!2d49.76462600730216!3d40.30291439882734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307f10f79e9879%3A0xe4ea28b08139828e!2sSixov%20denizi!5e0!3m2!1sen!2saz!4v1723625213235!5m2!1sen!2saz" width="200" height="200" frameborder="0" allowfullscreen></iframe>
+             
+            </div>
+            <div class="footer-icons">
+                <a href="https://www.facebook.com/profile.php?id=100091400173458&sk=about" class="icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@escadoaz" class="icon"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/escado.az/" class="icon"><i class="fab fa-instagram"></i></a>
+               
+            </div>
+            <div class="footer-info">
+                <p>© 2024 ESCADO. </p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.querySelectorAll('.icon').forEach(icon => {
+            icon.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        window.addEventListener('scroll', function() {
+    const about = document.querySelector('.about-text');
+    const rect = about.getBoundingClientRect();
+  const video = document.querySelector(".video-container");
+  const rectV = video.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > window.innerHeight / 2) {
+     
+        about.classList.add('animate__animated');
+        about.classList.add('animate__fadeInLeft');
+
+    } else {
+        
+        about.classList.remove('animate__animated animate__fadeInLeft');
+    }
+    if (rectV.top < window.innerHeight && rectV.bottom > window.innerHeight / 2) {
+     
+        video.classList.add('animate__animated');
+        video.classList.add('animate__fadeInRight');
+
+ } else {
+     
+    video.classList.remove('animate__animated animate__fadeInRight');
+ }
+});
+//         
+    </script>
+    <script src="js/escado-home-az.js"></script>
+  </body>
+</html>
