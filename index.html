@@ -7,6 +7,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
     />
+    <link href='https://fonts.googleapis.com/css?family=Merriweather Sans' rel='stylesheet'>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -32,15 +33,12 @@
     />
    <style>
     /* Başlıq üçün stil */
-     * {
-  box-sizing: border-box;
-}
 .navbar {
     /* background-color: #28a745; */
-background-color: #345E43;
+background-color: rgba(	52,	94,	67, 0);
     background-image: none; /* Arxa fon şəkili yoxdur */
     /* max-height: 80px; */
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.7s ease-in-out;
     padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
@@ -51,7 +49,9 @@ background-color: #345E43;
   top: 0;
   z-index: 1000;
 }
-
+.navbar.scrolled {
+    background-color: rgba(114, 191, 68, 0.8); /* Full color when scrolled */
+}
 .navbar-brand {
     display: flex;
     align-items: center;
@@ -140,6 +140,7 @@ body {
     margin: 0; /* Səhifənin kənar boşluqlarını aradan qaldırmaq üçün */
     padding: 0; /* Səhifənin iç boşluqlarını aradan qaldırmaq üçün */
     width: 100%; /* Ekran genişliyini əhatə edir */
+    background: linear-gradient(45deg, #F6F5F4, #F2F0EB );
     height: 100vh; /* Ekran hündürlüyünü əhatə edir */
 }
 
@@ -472,7 +473,7 @@ body {
 
 
 .about-section {
-    background: linear-gradient(to right, rgba(245, 245, 220, 0.9), rgba(219,234,210, 0.9));
+    background: linear-gradient(to right, rgba(	246	245	244, 0.9), rgba(	242, 240, 235, 0.9));
     padding: 60px 20px;
     text-align: center;
     height: 90vh;
@@ -500,10 +501,11 @@ body {
 
 .about-text {
     flex: 1;
-    color:#556B2F;
+    color:#3E2723 ;
     font-size: 23px;
     text-align: left;
-    font-family: 'Alatsi';
+    /* font-family: 'Alatsi'; */
+    font-family: 'Merriweather Sans';
 }
 
 .about-text p {
@@ -564,7 +566,7 @@ body {
             height: 90vh;
 margin-top: 10vh;
     padding: 40px 20px;
-     background-color: #f0ede5; 
+    background: linear-gradient(45deg, #F6F5F4, #F2F0EB );
     
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -791,8 +793,7 @@ footer {
         }
        
 @media (max-width: 576px) {
-  
-  
+    
     .navbar {
         flex-direction: column;
         align-items: center;
@@ -864,6 +865,7 @@ footer {
     .footer {
         padding: 20px;
         text-align: center;
+        margin-top: 20vh;
     }
 
     .footer a {
@@ -974,9 +976,84 @@ height: 40vh;
     footer{
       margin-top: 20vh;
     }
-     .girisDiv , .about-section , .contact-content{
+    
+    .girisDiv , .about-section , .contact-content{
         width: 100%;
     }
+}
+
+
+.containerVideo {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+ /* background-color: red; */
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden; 
+}
+
+.containerVideo h1 {
+ 
+  margin-left: 10%;
+  font-size: 7vmax;
+  letter-spacing: 5px;
+  color: #fff;
+  font-family: var(--font-fam);
+  /*   text-transform: uppercase; */
+  text-wrap: nowrap;
+  cursor: pointer;
+  transition: 300ms ease;
+}
+#two{
+    
+    margin-left: 20%;
+}
+#three{
+    margin-left: 30%;
+  
+}
+#video-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+ 
+  z-index: -1;
+  overflow: hidden;
+}
+#video-container .video {
+  pointer-events: none;
+  width: 100vw; /* Set to viewport width */
+  height: 100vh; /* Set to viewport height */
+
+  position: absolute;
+  opacity: 1;
+  transition: 1000ms ease;
+  object-fit: cover; /* Ensures the video covers the entire area */
+}
+#video-container::before {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  inset: 0;
+  
+  background-color: rgba(79, 77, 77, 0.4);
+}
+
+#video-container .one {
+  opacity: 1;
+}
+.containerVideo:hover h1:not(hover) {
+  opacity: 0.9;
+}
+.containerVideo:hover h1:hover {
+  opacity: 1;
+}
+
+* {
+    box-sizing: border-box;
 }
 
    </style>
@@ -988,7 +1065,7 @@ height: 40vh;
       <div class="container" style="height: 20vh;">
         <a class="navbar-brand" href="#">
           <img
-            src="logo.png"
+            src="img/logo.png"
             alt="Logistika Logo"
             class="logo"
           />
@@ -1026,19 +1103,7 @@ height: 40vh;
                 ><i class="fas fa-envelope"></i> Əlaqə</a
               >
             </li>
-          </ul>
-          <!-- <div class="language-selector">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/197/197374.png"
-              alt="English"
-              title="English"
-            />
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/197/197408.png"
-              alt="Русский"
-              title="Русский"
-            />
-          </div> -->
+          </ul>    
         </div>
       </div>
     </nav>
@@ -1050,18 +1115,7 @@ height: 40vh;
       referrerpolicy="no-referrer"
     ></script>
 <div id="anaSehife"></div>
-    <div class="girisDiv" >
-      <h1>Dünyanın hər bir yerindən <br>  ünvana çatdırılma</h1>
-
-      <div class="background-circles">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-      </div>
-      <div class="image-frame">
-    </div>
-    </div>
+  
     <script>
       const container = document.querySelector(".girisDiv");
       const cursor = document.querySelector(".cursor");
@@ -1085,6 +1139,33 @@ height: 40vh;
         });
       });
     </script>
+   <div class="containerVideo">
+    <h1 id="one">Güvənli</h1>
+    <h1 id="two">Səmərəli</h1>
+    <h1 id="three">Sürətli</h1>
+  
+    <div id="video-container">
+      <video src="final.mp4" loop muted autoplay class="video one"></video>
+    </div>
+  </div>
+  
+  <!-- font-family  -->
+  <link href="https://api.fontshare.com/v2/css?f[]=expose@500,700,400,900,1&display=swap" rel="stylesheet">
+
+
+
+  <div class="girisDiv" >
+    <h1>Dünyanın hər bir yerindən <br>  ünvana çatdırılma</h1>
+
+    <div class="background-circles">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+    <div class="image-frame">
+  </div>
+  </div>
 <div  id="xidmetler"></div>
     <div class="services-title">
       <h1 >Xidmətlər</h1>
@@ -1172,14 +1253,11 @@ height: 40vh;
                         Sertifikat <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
-                <div class="video-container  ">
-                    <iframe
-                    src="https://www.youtube.com/embed/your-video-id"
-                    title="About Us Video"
-                    frameborder="0"
-                    allowfullscreen
-                    class="about-video"
-                ></iframe>
+                <div class="video-container">
+                    <video class="about-video" controls>
+                        <source src="your-video-file.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
             <div class="image-gallery animate__animated animate__fadeInUp">
@@ -1189,7 +1267,7 @@ height: 40vh;
                     class="gallery-image"
                 />
                 <img
-                    src="https://scontent.fgyd3-1.fna.fbcdn.net/v/t39.30808-6/410973041_267937659596238_4311744812220467072_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=TcWVKWIhHfgQ7kNvgGD_Grw&_nc_ht=scontent.fgyd3-1.fna&oh=00_AYDhKWuNi4q8YlUSUEbBJySazj_a2g3Ok66q9INcDvCIbA&oe=66C26AFD"
+                    src="https://scontent.fgyd3-1.fna.fbcdn.net/v/t39.30808-6/410973041_267937659596238_4311744812220467072_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=FE3lbcBFzLYQ7kNvgHoeWtC&_nc_ht=scontent.fgyd3-1.fna&oh=00_AYBqzY0SVMR3IfF5xDQ6ma5a_sOqQzartqKPzZoGQPzFww&oe=66CA53FD"
                     alt="Gallery Image 2"
                     class="gallery-image"
                 />
@@ -1215,6 +1293,9 @@ height: 40vh;
                     <h4>Ünvan</h4>
                     <p>Bakı şəhəri,
                         Salyan şossesi 12</p>
+                        <br>
+                        <p>Yiwu,
+                             Futian. Shenzhen international logistics port</p>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-phone"></i>
@@ -1281,6 +1362,18 @@ height: 40vh;
     </footer>
     
     <script>
+      // Add this script at the bottom of your HTML file or in a separate JS file
+
+window.addEventListener('scroll', function() {
+    var navbar = document.querySelector('.navbar');
+    // Add 'scrolled' class when the page is scrolled down by 50px or more
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
         document.querySelectorAll('.icon').forEach(icon => {
             icon.addEventListener('click', () => {
                 window.scrollTo({
@@ -1315,6 +1408,6 @@ height: 40vh;
 });
 //         
     </script>
-    <script src="escado-home-az.js"></script>
+    <script src="js/escado-home-az.js"></script>
   </body>
 </html>
